@@ -1,0 +1,24 @@
+<mat-table #table [dataSource]="tableData">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="market">
+      <mat-header-cell *matHeaderCellDef> Market </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.market}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="stockValue">
+      <mat-header-cell *matHeaderCellDef> Latest Stock Price </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.stockValue | currency:'EUR' }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef> Date/Time </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dateTime}} </mat-cell>
+      </ng-container>
+    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns;"></mat-row>
+  </mat-table>
